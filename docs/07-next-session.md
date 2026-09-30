@@ -25,8 +25,9 @@ are not committed yet.
    resume callback runs there. wiikit ignores `0xCDD10003` and never
    resumes. Check it against Dolphin's DSP HLE (`UCodes.cpp`, the task mails)
    and the SDK's task manager (`__DSPHandler`), then answer the resume and
-   play in game with `WIIKIT_AUDIODBG=1`. Attract mode no longer reproduces
-   the gaps reliably: test in game. Other suspects: the game's own AX frame
+   play in game with `WIIKIT_AUDIODBG=1`. Tried at the end of session 1 in
+   attract mode only (120 s, no window): 3 blocks given up on with the
+   resume answered, 5 without: too few to judge; test in game. Other suspects: the game's own AX frame
    callback (`-0x3EAC(r13)`, Capcom's sound engine) running long inside the
    AI interrupt.
 3. **Play on**: a hunt, a carve, back to the village, the quest's rewards;
