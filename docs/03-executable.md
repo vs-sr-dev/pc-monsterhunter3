@@ -13,14 +13,17 @@ libraries it reports:
 
 Names (`tools/names.py` -> `build/names.tsv`), most trusted first:
 
-* `tools/names-manual.tsv`: 23 by hand, each with its evidence (KPAD's init
+* `tools/names-manual.tsv`: 30 by hand, each with its evidence (KPAD's init
   and reset, WPAD's read, allocator, status, data format, DPD, the RSO
-  library, `RealMode`, `PPCHalt`, `__VIRetraceHandler`). `WPADInit` is the
+  library, `RealMode`, `PPCHalt`, `__VIRetraceHandler`, and the OS
+  functions only Victorious's ELF would name): with them Dolphin's database
+  is enough for every function the runtime hooks. `WPADInit` is the
   0x70-byte function at `804EDBB0`; the one that prints "WPADInit()" is
   `__wpadInitSub`.
 * `mh3.sel`: 758 functions, the link names of what the modules import.
-* Signatures (`tools/sigmatch.py`): Dolphin's `totaldb.dsy` and
-  Victorious's ELF, 1 288 kept.
+* Signatures (`tools/sigmatch.py`): Dolphin's `totaldb.dsy`, 806 kept
+  (Victorious's ELF, `--elf`, would add 482 more; the build does not need
+  them).
 * The SDK's own debug strings: 36.
 
 The game reads its controllers itself: `WPADRead` into its own samples, then

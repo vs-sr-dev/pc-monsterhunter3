@@ -12,10 +12,10 @@ Results:
   Capcom's own sound banks, and **21 RSO modules** with `mh3.sel`.
 * **The executable** (`03-executable.md`): stripped; the RVL SDK of February
   2009 (KPAD and WPAD of June 2009), NW4R of February 2010, DWC and the
-  network libraries, and HID/KBD for USB keyboards. 2 105 names: 758 from
-  `mh3.sel` (the executable's exports to its modules: link names), 1 288
-  by signature (Dolphin's database and Victorious's ELF), 36 from the SDK's
-  own strings, 23 by hand.
+  network libraries, and HID/KBD for USB keyboards. 1 630 names: 758 from
+  `mh3.sel` (the executable's exports to its modules: link names), 806 by
+  signature (Dolphin's database), 36 from the SDK's own strings, 30 by
+  hand.
 * **The RSO modules**: most of the game's code (monsters, quests, the lobby,
   the movies, the Home Button menu, the maps) is loaded at run time into
   the heap and linked by the SDK. wiikit learnt to recompile them with the

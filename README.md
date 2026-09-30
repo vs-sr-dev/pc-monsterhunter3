@@ -55,7 +55,7 @@ CMake, Ninja, clang (MSYS2) and SDL3; OpenGL 4.5 to run. From the root:
 ```sh
 python -m wiikit.disc GAME.rvz --extract build/extract
 python tools/sigmatch.py build/extract/sys/main.dol --dsy <Dolphin>/Sys/totaldb.dsy \
-    --elf <Victorious>/Oscar_wii_final_versioned.elf --out build/sig_guess.tsv
+    --out build/sig_guess.tsv
 python tools/names.py build/extract/sys/main.dol          # -> build/names.tsv
 python -m wiikit.recomp build/extract/sys/main.dol --out build/recomp \
     --symbols build/names.tsv --hooks tools/mh3-hooks.txt \
@@ -67,10 +67,10 @@ cd build/run1 && ../recomp-build/wiiboot ../extract --symbols ../recomp/symbols.
 ```
 
 `build/fonts` holds the boot ROM's fonts and `dsp_coef.bin` (Dolphin's
-`Sys/GC` has free ones). The names need Dolphin's `totaldb.dsy`; Victorious's
-symbolised ELF adds the SDK functions the database lacks (sigmatch's
-`--elf`); `mh3.sel` on the disc names the executable's exports to its
-modules. `tools/look.py` is `wiikit.ppc` on the stripped DOL.
+`Sys/GC` has free ones). The names need only Dolphin's `totaldb.dsy` (in
+every Dolphin install's `Sys` folder) and the disc: `mh3.sel` names the
+executable's exports to its modules, and `tools/names-manual.tsv` every
+function the runtime hooks that the database misses, each with its evidence. `tools/look.py` is `wiikit.ppc` on the stripped DOL.
 
 Playing: wiikit's Classic Controller mapping (the pad's buttons by
 position; `build/keys.txt` for the keyboard). F11 fullscreen, F12 a GX
