@@ -1,9 +1,7 @@
 # This port and wiikit
 
 This port takes [wiikit](https://github.com/vs-sr-dev/wiikit) as a
-submodule at `wiikit/`, like the five ports before it. While this port is
-private, wiikit's code, comments and commits do not name it ("a stripped
-2010 RSO game" stands for it).
+submodule at `wiikit/`, like the five ports before it.
 
 ## What this port used as it is (session 1)
 
@@ -11,7 +9,7 @@ private, wiikit's code, comments and commits do not name it ("a stripped
 recompiler, and the whole runtime: threads, interrupts, IOS, GX and the
 renderer, AX, the Classic Controller on SDL gamepads.
 
-## What it gave wiikit (session 1, not yet committed there)
+## What it gave wiikit (session 1: `a5e96e5`, and `9674d07` names it in wiikit's README)
 
 | Change | Layer | Why it is not game knowledge |
 |---|---|---|
@@ -22,8 +20,8 @@ renderer, AX, the Classic Controller on SDL gamepads.
 | the CPU's EFB reads (`GXPeekARGB`/`GXPeekZ` at `0xC8000000`): the renderer reads the EFB back after what was submitted, peeks read that copy until more is recorded; CPU writes ignored | 5 | any game that reads its picture back (brightness, picking) |
 | the AI clock: a frame is ready once the guest has taken the DSP's interrupt for it; after a block given up on, the schedule restarts instead of catching up; `WIIKIT_AUDIODBG` reports each block given up on, with the chain's times and the guest's call chain | 5 | AX skips a frame when the AI interrupt comes before the DSP's |
 
-A copy of the uncommitted diff is kept in `build/wiikit-session1.patch`.
-
-Before these go in, the routine: recompile and boot the four Wii ports and
-Mega Man X: Command Mission with them (the same screens as before; the
-self-test of Victorious), then commit in wiikit and bump every port.
+Checked on every port before they went in: Victorious self-test 15/15 and
+to its Auditions episode; Dragon Quest Swords to its Adventure Logs;
+Conduit 2 and Arc Rise Fantasia to their titles; Mega Man X: Command Mission
+to its opening scenes: the same screens as before (the GX draws equal; the
+GL calls fewer where the old binaries predate the draw merging).

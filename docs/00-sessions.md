@@ -39,5 +39,6 @@ Results:
   149 dropped blocks in two minutes of attract mode became 5, and bursts are
   gone, but in game isolated gaps remain (`07-next-session.md`).
 
-wiikit's changes of this session are not committed there yet: they wait for
-the check on the other five ports (`10-wiikit.md`).
+wiikit's changes of this session were checked on the other five ports and
+committed there (`a5e96e5`, `10-wiikit.md`); this repository was published
+with the game playable, the sound's gaps its caveat.
