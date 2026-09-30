@@ -1,0 +1,2 @@
+# Monster Hunter Tri: the functions tools/mh3.cpp replaces, on top of
+# wiikit/runtime/hooks.txt.
